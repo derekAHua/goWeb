@@ -10,4 +10,4 @@ require (
 	gorm.io/gorm v1.23.5
 )
 
- replace github.com/derekAHua/goLib => /Users/ahua/goProject/goLib
+// replace github.com/derekAHua/goLib => /Users/ahua/goProject/goLib
