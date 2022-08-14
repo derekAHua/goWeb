@@ -1,0 +1,15 @@
+demo:
+  service: demo
+  domain: http://127.0.0.1:8088
+  timeout: 300ms
+  retry: 2
+
+  Retries:             3,
+  RPCPath:             share.DefaultRPCPath,
+  ConnectTimeout:      time.Second,
+  SerializeType:       protocol.MsgPack,
+  CompressType:        protocol.None,
+  BackupLatency:       10 * time.Millisecond,
+  MaxWaitForHeartbeat: 30 * time.Second,
+  TCPKeepAlivePeriod:  time.Minute,
+  BidirectionalBlock:  false,

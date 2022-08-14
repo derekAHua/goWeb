@@ -1,0 +1,27 @@
+mysql:
+  test:
+    service: test
+    database: test
+    addr: "localhost:33006"
+    user: "root"
+    password: "123456"
+    maxIdleConns: 50
+    maxOpenConns: 100
+    connMaxLifeTime: 3600s
+    connTimeOut: 1500ms
+    writeTimeOut: 3s
+    readTimeOut: 3s
+
+redis:
+  demo:
+    service: demo
+    addr: "@@redis.demo.addr"
+    user: "@@redis.demo.user"
+    password: "@@redis.demo.password"
+    maxIdle: 10
+    maxActive: 50
+    idleTimeout: 5m
+    connTimeOut: 1200ms
+    readTimeOut: 1200ms
+    writeTimeOut: 1200ms
+    maxConnLifetime: 10m

@@ -1,0 +1,7 @@
+log:
+    level: "DEBUG" # 日志级别，DEBUG、INFO、WARN、ERROR、DPANIC、PANIC、FATAL，默认info
+    stdout: false  # 是否输出到终端，仅在开发环境有效
+
+server:
+    address: ":8888"
+
