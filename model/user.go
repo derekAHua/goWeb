@@ -16,6 +16,7 @@ var (
 type (
 	User interface {
 		GetUSerById(userId uint64) (defaultUser TblUser, err error)
+		UpdateStatus(userId uint64) (err error)
 	}
 
 	user struct {
@@ -23,6 +24,12 @@ type (
 		model.BaseModel
 	}
 )
+
+func (u *user) UpdateStatus(userId uint64) (err error) {
+	m := map[string]interface{}{"status": 1}
+	_, err = u.Update(m, model.Where("user_id = ?", userId))
+	return
+}
 
 func (u *user) GetUSerById(userId uint64) (defaultUser TblUser, err error) {
 	err = u.GetOne(&defaultUser, model.Where("user_id = ?", userId), model.UnDelete())
