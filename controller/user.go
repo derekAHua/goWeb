@@ -12,6 +12,10 @@ import (
 // @Date: 2022/8/14 13:31
 // @Version 1.0
 
+type user struct{}
+
+var User = user{}
+
 func (user) GetUserInfo(ctx *gin.Context) {
 	param := struct {
 		UserId uint64 `form:"userId" binding:"required" label:"用户Id"`

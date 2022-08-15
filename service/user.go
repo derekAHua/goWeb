@@ -5,6 +5,8 @@ import (
 	"goWeb/model"
 )
 
+var User user = &defaultUser{}
+
 // @Author: Derek
 // @Description: user Service.
 // @Date: 2022/8/14 13:48
@@ -21,8 +23,4 @@ type (
 
 func (u *defaultUser) GetUserInfo(ctx *gin.Context, userId uint64) (user model.TblUser, err error) {
 	return model.NewUser(ctx).GetUSerById(userId)
-}
-
-func newUser() user {
-	return &defaultUser{}
 }

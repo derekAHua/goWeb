@@ -14,17 +14,17 @@ var (
 )
 
 type (
-	user interface {
+	User interface {
 		GetUSerById(userId uint64) (defaultUser TblUser, err error)
 	}
 
-	defaultUser struct {
+	user struct {
 		ctx *gin.Context
 		model.BaseModel
 	}
 )
 
-func (u *defaultUser) GetUSerById(userId uint64) (defaultUser TblUser, err error) {
+func (u *user) GetUSerById(userId uint64) (defaultUser TblUser, err error) {
 	err = u.GetOne(&defaultUser, model.Where("user_id = ?", userId), model.UnDelete())
 	if err != nil {
 		zlog.ErrorF(u.ctx, errGetUserInfo.Error()+",userId=[%d],err=[%s]", userId, err.Error())
@@ -34,10 +34,10 @@ func (u *defaultUser) GetUSerById(userId uint64) (defaultUser TblUser, err error
 	return
 }
 
-func NewUser(ctx *gin.Context) user {
-	return &defaultUser{ctx, model.NewBaseModel(conf.MysqlClientTest.WithContext(ctx).Table("tblUser"))}
+func NewUser(ctx *gin.Context) User {
+	return &user{ctx, model.NewBaseModel(conf.MysqlClientTest.WithContext(ctx).Table("tblUser"))}
 }
 
-func NewUserWithTx(ctx *gin.Context, tx *gorm.DB) user {
-	return &defaultUser{ctx, model.NewBaseModel(tx.Table("tblUser"))}
+func NewUserWithTx(ctx *gin.Context, tx *gorm.DB) User {
+	return &user{ctx, model.NewBaseModel(tx.Table("tblUser"))}
 }
