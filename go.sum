@@ -106,6 +106,8 @@ github.com/cpuguy83/go-md2man/v2 v2.0.1/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46t
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/derekAHua/goLib v0.0.0-20220814123649-6b15feb03405 h1:5dXI9pKqn/FHo08nFc0xWWAaeG0qQDtLVc7S78ER4fQ=
+github.com/derekAHua/goLib v0.0.0-20220814123649-6b15feb03405/go.mod h1:XshGTXCp7WQFku+ls3qPg0HXEMTahD0xWebpTSxXSIk=
 github.com/derekAHua/irpc v0.0.0-20220724023742-9686ccd1bbb9 h1:joVBoJ8eE6MbrW3FqykLcc3UKx51ozG9Ifa4ql6r17A=
 github.com/derekAHua/irpc v0.0.0-20220724023742-9686ccd1bbb9/go.mod h1:M1V4xH3rZQADvmOxUSCrvcwSTP7tqvfODF/sVXyGH4g=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
