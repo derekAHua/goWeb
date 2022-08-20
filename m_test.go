@@ -22,5 +22,5 @@ func TestGenerateModel(t *testing.T) {
 
 func TestGenerateTable(t *testing.T) {
 	conf.Init()
-	generator.GenerateTable("./model", conf.MysqlClientTest, "test", "tblUser")
+	generator.GenerateTable("./models", conf.MysqlClientTest, "test", "tblUser")
 }

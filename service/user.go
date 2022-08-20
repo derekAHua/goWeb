@@ -3,6 +3,7 @@ package service
 import (
 	"github.com/gin-gonic/gin"
 	"goWeb/model"
+	"goWeb/models"
 )
 
 var User user = &defaultUser{}
@@ -15,12 +16,12 @@ var User user = &defaultUser{}
 type (
 	user interface {
 		// GetUserInfo return model.TblUser by userId.
-		GetUserInfo(ctx *gin.Context, userId uint64) (user model.TblUser, err error)
+		GetUserInfo(ctx *gin.Context, userId uint64) (user models.User, err error)
 	}
 
 	defaultUser struct{}
 )
 
-func (u *defaultUser) GetUserInfo(ctx *gin.Context, userId uint64) (user model.TblUser, err error) {
+func (u *defaultUser) GetUserInfo(ctx *gin.Context, userId uint64) (user models.User, err error) {
 	return model.NewUser(ctx).GetUSerById(userId)
 }

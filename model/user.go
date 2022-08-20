@@ -6,6 +6,7 @@ import (
 	"github.com/derekAHua/goLib/zlog"
 	"github.com/gin-gonic/gin"
 	"goWeb/conf"
+	"goWeb/models"
 	"gorm.io/gorm"
 )
 
@@ -15,7 +16,7 @@ var (
 
 type (
 	User interface {
-		GetUSerById(userId uint64) (defaultUser TblUser, err error)
+		GetUSerById(userId uint64) (defaultUser models.User, err error)
 		UpdateStatus(userId uint64) (err error)
 	}
 
@@ -31,7 +32,7 @@ func (u *user) UpdateStatus(userId uint64) (err error) {
 	return
 }
 
-func (u *user) GetUSerById(userId uint64) (defaultUser TblUser, err error) {
+func (u *user) GetUSerById(userId uint64) (defaultUser models.User, err error) {
 	err = u.GetOne(&defaultUser, model.Where("user_id = ?", userId), model.UnDelete())
 	if err != nil {
 		zlog.ErrorF(u.ctx, errGetUserInfo.Error()+",userId=[%d],err=[%s]", userId, err.Error())
