@@ -3,6 +3,7 @@ package model
 import (
 	"github.com/gin-gonic/gin"
 	"goWeb/conf"
+	"goWeb/models"
 	"goWeb/test"
 	"testing"
 )
@@ -12,10 +13,25 @@ import (
 // @Date: 2022/8/15 22:17
 // @Version 1.0
 
+func TestSaveOrCreate(t *testing.T) {
+	test.Init()
+	ctx := &gin.Context{}
+
+	err := NewUser(ctx).SaveOrCreate(models.User{
+		UserId:   1,
+		RealName: "aaa",
+		Phone:    "232",
+		Email:    "a.com",
+	})
+
+	if err != nil {
+		t.Log(err)
+	}
+}
+
 func TestNewUserWithTx(t *testing.T) {
 
 	test.Init()
-	//conf.Init()
 	ctx := &gin.Context{}
 
 	var err error

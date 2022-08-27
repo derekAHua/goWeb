@@ -8,6 +8,7 @@ import (
 	"goWeb/conf"
 	"goWeb/models"
 	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 )
 
 var (
@@ -18,6 +19,8 @@ type (
 	User interface {
 		GetUSerById(userId uint64) (defaultUser models.User, err error)
 		UpdateStatus(userId uint64) (err error)
+
+		SaveOrCreate(user models.User) (err error)
 	}
 
 	user struct {
@@ -25,6 +28,14 @@ type (
 		model.BaseModel
 	}
 )
+
+func (u *user) SaveOrCreate(user models.User) (err error) {
+	_, err = u.Upsert(&user,
+		[]clause.Column{{Name: "user_id"}, {Name: "real_name"}},
+		clause.AssignmentColumns([]string{"email", "phone"}))
+
+	return
+}
 
 func (u *user) UpdateStatus(userId uint64) (err error) {
 	m := map[string]interface{}{"status": 1}
